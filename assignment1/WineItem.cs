@@ -8,5 +8,21 @@ namespace assignment1
 {
     class WineItem
     {
+        //My Generic Constructor
+        public WineItem()
+        {
+
+        }
+
+        //3 Parameter Constructor
+        public WineItem(string ID, string description, string pack)
+        {
+
+        }
+
+        //Public Methods
+
+
+
     }
 }
