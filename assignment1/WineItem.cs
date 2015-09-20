@@ -8,6 +8,10 @@ namespace assignment1
 {
     class WineItem
     {
+        string ID;
+        string description;
+        string pack;
+
         //My Generic Constructor
         public WineItem()
         {
