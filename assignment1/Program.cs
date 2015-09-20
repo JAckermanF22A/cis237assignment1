@@ -9,23 +9,30 @@ namespace assignment1
 {
     class Program
     {
-        static UserInterface userInterface = new UserInterface();
-
         static bool CSVloaded;
+
+        public static CSVProcessor CSVprocessor = new CSVProcessor();
+        public static WineItemCollection wineItemCollection = new WineItemCollection();
+        public static UserInterface userInterface = new UserInterface();
 
         static void Main(string[] args)
         {
             CSVloaded = false;
             MainLoop();
+
+            
             
         }
 
         static void MainLoop()
         {
+            
+
+
             while (userInterface.userInput != "exit")
             {
                 
-                CSVProcessor CSVprocessor = new CSVProcessor();
+                
                 
                 userInterface.PrintMenu();
                 userInterface.GetInput();
@@ -44,6 +51,7 @@ namespace assignment1
                         
                         break;
                     case "print list":
+                        userInterface.PrintTheList();
                         
                         break;
                     case "3":

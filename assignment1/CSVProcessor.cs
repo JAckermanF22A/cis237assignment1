@@ -21,8 +21,6 @@ namespace assignment1
 
                 try
                 {
-                    WineItemCollection wineItemCollection = new WineItemCollection();
-
                     while (!reader.EndOfStream)
                     {
                         
@@ -31,10 +29,10 @@ namespace assignment1
 
                         WineItem WineItem = new WineItem(fields[0], fields[1], fields[2]);
 
-                        wineItemCollection.populateArray(WineItem);
+                        Program.wineItemCollection.populateArray(WineItem);
                     }
 
-                    wineItemCollection.lengthOfArray = wineItemCollection.arrayCounter;
+                    Program.wineItemCollection.lengthOfArray = Program.wineItemCollection.arrayCounter;
                 }
                 catch
                 {

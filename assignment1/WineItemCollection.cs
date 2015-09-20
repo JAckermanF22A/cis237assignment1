@@ -15,7 +15,7 @@ namespace assignment1
 
         public WineItemCollection()
         {
-            if(arrayInitialized != true)
+            if( arrayInitialized != true)
             {
                 wineItemArray = new WineItem[4500];
                 arrayCounter = 0;

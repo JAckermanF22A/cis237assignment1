@@ -28,7 +28,15 @@ namespace assignment1
 
         public void PrintTheList()
         {
-            WineItemCollection wineItemCollection = new WineItemCollection();
+            int counter = 0;
+
+            while(Program.wineItemCollection.lengthOfArray > counter)
+            {
+                Console.WriteLine(Program.wineItemCollection.wineItemArray[counter].ToString());
+                counter++;
+            }
         }
+
+
     }
 }
