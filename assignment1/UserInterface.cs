@@ -8,9 +8,27 @@ namespace assignment1
 {
     class UserInterface
     {
-        public void OutputList()
+        public string userInput;
+
+        public void PrintMenu()
         {
-            
+            Console.WriteLine("Menu");
+            Console.WriteLine("--------------------");
+            Console.WriteLine("Commands: load .csv" + " | " + "print list" + " | ");
+
+            Console.WriteLine("--------------------");
+        }
+
+       
+
+        public void GetInput()
+        {
+            userInput = Console.ReadLine();
+        }
+
+        public void PrintTheList()
+        {
+            WineItemCollection wineItemCollection = new WineItemCollection();
         }
     }
 }
