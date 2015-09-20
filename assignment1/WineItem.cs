@@ -8,9 +8,9 @@ namespace assignment1
 {
     class WineItem
     {
-        string ID;
-        string description;
-        string pack;
+        public string ID;
+        public string description;
+        public string pack;
 
         //My Generic Constructor
         public WineItem()

@@ -8,6 +8,9 @@ namespace assignment1
 {
     class UserInterface
     {
-
+        public void OutputList()
+        {
+            
+        }
     }
 }
