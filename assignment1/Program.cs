@@ -64,7 +64,26 @@ namespace assignment1
                             userInterface.NothingFoundDialogue();
                         }
                         break;
-                    case "4":
+                    case "add wine":
+                        string tempID;
+                        string tempDescription;
+                        string tempPack;
+
+
+                        userInterface.AddDialogueID();
+                        userInterface.GetInput();
+                        tempID = userInterface.userInput;
+
+                        userInterface.AddDialogueDescription();
+                        userInterface.GetInput();
+                        tempDescription = userInterface.userInput;
+
+                        userInterface.AddDialoguePack();
+                        userInterface.GetInput();
+                        tempPack = userInterface.userInput;
+
+                        wineItemCollection.AddWine(new WineItem(tempID, tempDescription, tempPack));
+
                         
                         break;
                     case "exit":

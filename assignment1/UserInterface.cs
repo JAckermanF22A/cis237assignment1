@@ -15,7 +15,8 @@ namespace assignment1
         {
             Console.WriteLine("Menu");
             Console.WriteLine("--------------------");
-            Console.WriteLine("Commands: load .csv" + " | " + "print list" + " | " + "search");
+            Console.WriteLine("Commands: load .csv" + " | " + "print list" + " | " + "search" + " | " + "add wine" + " | " + "exit");
+            Console.WriteLine("Pick a command, if you would.");
 
             Console.WriteLine("--------------------");
         }
@@ -33,6 +34,8 @@ namespace assignment1
             int alreadyDisplayed = 0;
 
             bool exitBool = false;
+
+
 
             while(Program.wineItemCollection.lengthOfArray > alreadyDisplayed && exitBool == false)
             {
@@ -88,6 +91,21 @@ namespace assignment1
         {
             Console.WriteLine("");
             Console.WriteLine("Sorry, no wine with the ID " + Program.userInterface.userInput + " was found.");
+        }
+
+        public void AddDialogueID()
+        {
+            Console.WriteLine("First, input the new wine's 5 digit ID");
+        }
+
+        public void AddDialogueDescription()
+        {
+            Console.WriteLine("Please enter a description of the wine");
+        }
+
+        public void AddDialoguePack()
+        {
+            Console.WriteLine("Finally, enter what pack the wine is");
         }
     }
 }

@@ -18,6 +18,8 @@ namespace assignment1
             {
                 var reader = new StreamReader(File.OpenRead("WineList.CSV"));
 
+                Program.wineItemCollection.arrayCounter = Program.wineItemCollection.wineItemArray.Count(x => x != null);
+
                 try
                 {
                     while (!reader.EndOfStream)

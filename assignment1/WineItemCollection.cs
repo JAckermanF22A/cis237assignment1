@@ -16,19 +16,31 @@ namespace assignment1
 
         public WineItemCollection()
         {
-            if( arrayInitialized != true)
-            {
                 wineItemArray = new WineItem[4500];
                 arrayCounter = 0;
-                arrayInitialized = true;
-            }
         }
 
         
         public void populateArray(WineItem wineItem)
         {
+
+
             wineItemArray[arrayCounter] = wineItem;
             arrayCounter++;
+        }
+
+        public void AddWine(WineItem wineItem)
+        {
+            int winePosition = wineItemArray.Count(x => x != null) + 1;
+
+            if(wineItemArray[winePosition-1] == null)
+            {
+                winePosition = winePosition - 1;
+            }
+
+            lengthOfArray++;
+
+            wineItemArray[winePosition] = wineItem;
         }
 
         public void SearchTheArray()
