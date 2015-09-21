@@ -9,8 +9,9 @@ namespace assignment1
 {
     class Program
     {
-        static bool CSVloaded;
+        static bool CSVloaded; //Used for determining if the CSV file has been loaded.
 
+        //It took me longer than I'd like to admit to figure out that I could make a public instance of a class that I could access from anywhere...
         public static CSVProcessor CSVprocessor = new CSVProcessor();
         public static WineItemCollection wineItemCollection = new WineItemCollection();
         public static UserInterface userInterface = new UserInterface();
@@ -18,9 +19,9 @@ namespace assignment1
         static void Main(string[] args)
         {
             
-            Console.SetWindowSize(150, 40);
+            Console.SetWindowSize(150, 40); //Expands the console so that the data will fit. 
 
-            CSVloaded = false;
+            CSVloaded = false; //CSV obviously hasn't been loaded in on program start-up so it should be false.
             MainLoop();
 
             
@@ -29,26 +30,20 @@ namespace assignment1
 
         static void MainLoop()
         {
-            
-
-
-            while (userInterface.userInput != "exit")
+            while (userInterface.userInput != "exit") //Until the user enters exit they can't escape the Matrix. 
             {
-                
-                
-                
                 userInterface.PrintMenu();
                 userInterface.GetInput();
-                switch (userInterface.userInput)                //Decides what to do based on user input
+                switch (userInterface.userInput) 
                 {
                     case "load .csv":
-                        if(CSVloaded == true)
+                        if(CSVloaded == true) 
                         {
                             Console.WriteLine("The .CSV file has already been loaded.");
                         }
                         else
                         {
-                            CSVprocessor.GottaOpenTheFile();
+                            CSVprocessor.OpenTheGates();
                             CSVloaded = true;
                         }
                         
@@ -57,8 +52,17 @@ namespace assignment1
                         userInterface.PrintTheList();
                         
                         break;
-                    case "3":
-                        
+                    case "search":
+                        userInterface.SearchDialogue();
+                        wineItemCollection.SearchTheArray();
+                        if(wineItemCollection.wineFound == true)
+                        {
+                            userInterface.FoundDialogue();
+                        }
+                        else
+                        {
+                            userInterface.NothingFoundDialogue();
+                        }
                         break;
                     case "4":
                         

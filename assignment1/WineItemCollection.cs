@@ -12,6 +12,7 @@ namespace assignment1
         public int arrayCounter;
         public int lengthOfArray;
         public bool arrayInitialized;
+        public bool wineFound;
 
         public WineItemCollection()
         {
@@ -28,6 +29,28 @@ namespace assignment1
         {
             wineItemArray[arrayCounter] = wineItem;
             arrayCounter++;
+        }
+
+        public void SearchTheArray()
+        {
+            arrayCounter = 0;
+            lengthOfArray = wineItemArray.Count(x => x != null);
+            wineFound = false;
+
+            Program.userInterface.GetInput();
+
+            while(arrayCounter < lengthOfArray && wineFound == false)
+            {
+                if(Program.userInterface.userInput == wineItemArray[arrayCounter].ID)
+                {
+                    wineFound = true;
+                    Program.userInterface.foundWine = Program.wineItemCollection.wineItemArray[arrayCounter].ToString();
+                }
+                else
+                {
+                    arrayCounter++;
+                }
+            }    
         }
 
 

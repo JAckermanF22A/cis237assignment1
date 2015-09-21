@@ -12,7 +12,7 @@ namespace assignment1
         
 
 
-        public void GottaOpenTheFile()
+        public void OpenTheGates()
         {
             try
             {
@@ -31,7 +31,7 @@ namespace assignment1
                         Program.wineItemCollection.populateArray(WineItem);
                     }
 
-                    Program.wineItemCollection.lengthOfArray = Program.wineItemCollection.arrayCounter;
+                    Program.wineItemCollection.lengthOfArray = Program.wineItemCollection.wineItemArray.Count(x => x != null);
                 }
                 catch
                 {

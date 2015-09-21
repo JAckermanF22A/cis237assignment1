@@ -9,6 +9,7 @@ namespace assignment1
     class UserInterface
     {
         public string userInput;
+        public string foundWine;
 
         public void PrintMenu()
         {
@@ -65,15 +66,28 @@ namespace assignment1
                             Console.WriteLine("Error: Please enter y or n");
                         }
                     }
-                    Console.WriteLine("----------------------------------------------------------------------------------------------------");
-
-
+                    Console.WriteLine("--------------------------------------------------------------------------------------------------------");
                 }
                 
                 
             }
         }
 
+        public void SearchDialogue()
+        {
+            Console.WriteLine("Please input the 5 digit wine ID you would like to search for. Make sure all letters are capatalized.");
+        }
 
+        public void FoundDialogue()
+        {
+            Console.WriteLine("");
+            Console.WriteLine(foundWine);
+        }
+
+        public void NothingFoundDialogue()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Sorry, no wine with the ID " + Program.userInterface.userInput + " was found.");
+        }
     }
 }
