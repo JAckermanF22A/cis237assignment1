@@ -14,7 +14,7 @@ namespace assignment1
         {
             Console.WriteLine("Menu");
             Console.WriteLine("--------------------");
-            Console.WriteLine("Commands: load .csv" + " | " + "print list" + " | ");
+            Console.WriteLine("Commands: load .csv" + " | " + "print list" + " | " + "search");
 
             Console.WriteLine("--------------------");
         }
@@ -29,11 +29,48 @@ namespace assignment1
         public void PrintTheList()
         {
             int counter = 0;
+            int alreadyDisplayed = 0;
 
-            while(Program.wineItemCollection.lengthOfArray > counter)
+            bool exitBool = false;
+
+            while(Program.wineItemCollection.lengthOfArray > alreadyDisplayed && exitBool == false)
             {
-                Console.WriteLine(Program.wineItemCollection.wineItemArray[counter].ToString());
-                counter++;
+                if(counter != 200)
+                {
+                    Console.WriteLine(Program.wineItemCollection.wineItemArray[alreadyDisplayed].ToString());
+                    counter++;
+                    alreadyDisplayed++;
+                }
+                else
+                {
+                    userInput = "";
+                    while(userInput != "y" && exitBool != true)
+                    {
+                        Console.WriteLine(alreadyDisplayed + " bottles of wine have been printed and there are " + (Program.wineItemCollection.lengthOfArray - alreadyDisplayed) + " wine bottles left" +
+                            ", would you like to continue?");
+                        Console.WriteLine("y/n?");
+
+                        userInput = Console.ReadLine();
+
+                        if (userInput == "y")
+                        {
+                            counter = 0;
+                        }
+                        else if (userInput == "n")
+                        {
+                            exitBool = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error: Please enter y or n");
+                        }
+                    }
+                    Console.WriteLine("----------------------------------------------------------------------------------------------------");
+
+
+                }
+                
+                
             }
         }
 

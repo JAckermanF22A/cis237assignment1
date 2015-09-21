@@ -17,6 +17,9 @@ namespace assignment1
 
         static void Main(string[] args)
         {
+            
+            Console.SetWindowSize(150, 40);
+
             CSVloaded = false;
             MainLoop();
 

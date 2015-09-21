@@ -17,7 +17,6 @@ namespace assignment1
             try
             {
                 var reader = new StreamReader(File.OpenRead("WineList.CSV"));
-                //OpenTheFile = File.OpenRead("WineList.CSV");
 
                 try
                 {
