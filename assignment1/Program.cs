@@ -22,6 +22,8 @@ namespace assignment1
             Console.SetWindowSize(150, 40); //Expands the console so that the data will fit. 
 
             CSVloaded = false; //CSV obviously hasn't been loaded in on program start-up so it should be false.
+            userInterface.PrintMenu();
+            userInterface.PickSomethingDammit();
             MainLoop();
 
             
@@ -32,63 +34,104 @@ namespace assignment1
         {
             while (userInterface.userInput != "exit") //Until the user enters exit they can't escape the Matrix. 
             {
-                userInterface.PrintMenu();
                 userInterface.GetInput();
                 switch (userInterface.userInput) 
                 {
                     case "load .csv":
-                        if(CSVloaded == true) 
-                        {
-                            Console.WriteLine("The .CSV file has already been loaded.");
-                        }
-                        else
-                        {
-                            CSVprocessor.OpenTheGates();
-                            CSVloaded = true;
-                        }
-                        
+                        LoadCSV();
+                        userInterface.PickSomethingDammit();
                         break;
+
                     case "print list":
                         userInterface.PrintTheList();
-                        
+                        userInterface.PrintMenu();
+                        userInterface.PickSomethingDammit();
                         break;
+
                     case "search":
-                        userInterface.SearchDialogue();
-                        wineItemCollection.SearchTheArray();
-                        if(wineItemCollection.wineFound == true)
-                        {
-                            userInterface.FoundDialogue();
-                        }
-                        else
-                        {
-                            userInterface.NothingFoundDialogue();
-                        }
+                        SearchFunction();
+                        userInterface.PickSomethingDammit();
                         break;
+
                     case "add wine":
-                        string tempID;
-                        string tempDescription;
-                        string tempPack;
-
-
-                        userInterface.AddDialogueID();
-                        userInterface.GetInput();
-                        tempID = userInterface.userInput;
-
-                        userInterface.AddDialogueDescription();
-                        userInterface.GetInput();
-                        tempDescription = userInterface.userInput;
-
-                        userInterface.AddDialoguePack();
-                        userInterface.GetInput();
-                        tempPack = userInterface.userInput;
-
-                        wineItemCollection.AddWine(new WineItem(tempID, tempDescription, tempPack));
-
-                        
+                        AddWine();
+                        userInterface.PickSomethingDammit();
                         break;
                     case "exit":
-                        //Abort abort abort! Exits the loop and therefor exits the program.
+                        //Abort, abort, abort!
                         break;
+                    case "display menu":
+                        userInterface.PrintMenu();
+                        break;
+                    default:
+                        userInterface.UserInputError();
+                        userInterface.PickSomethingDammit();
+                        break;
+                }
+            }
+        }
+
+        static void LoadCSV()
+        {
+            if (CSVloaded == true)
+            {
+                Console.WriteLine("The .csv file has already been loaded.");
+            }
+            else
+            {
+                CSVprocessor.OpenTheGates();
+                CSVloaded = true;
+                userInterface.CSVLoaded();
+            }
+                        
+        }
+
+        static void SearchFunction()
+        {
+            userInterface.SearchDialogue();
+            wineItemCollection.SearchTheArray();
+            if (wineItemCollection.wineFound == true)
+            {
+                userInterface.FoundDialogue();
+            }
+            else
+            {
+                userInterface.NothingFoundDialogue();
+            }
+        }
+
+        static void AddWine()
+        {
+            string tempID;
+            string tempDescription;
+            string tempPack;
+            bool validationBool = false;
+
+
+            while (validationBool == false)
+            {
+                userInterface.AddDialogueID();
+                userInterface.GetInput();
+
+
+                if (userInterface.userInput.Length == 5)
+                {
+                    validationBool = true;
+                    tempID = userInterface.userInput;
+
+                    userInterface.AddDialogueDescription();
+                    userInterface.GetInput();
+                    tempDescription = userInterface.userInput;
+
+                    userInterface.AddDialoguePack();
+                    userInterface.GetInput();
+                    tempPack = userInterface.userInput;
+
+                    wineItemCollection.AddWine(new WineItem(tempID, tempDescription, tempPack));
+                }
+                else
+                {
+                    userInterface.AddDialogueIDErrorMessage();
                 }
             }
         }

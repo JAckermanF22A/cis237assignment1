@@ -16,7 +16,7 @@ namespace assignment1
         {
             try
             {
-                var reader = new StreamReader(File.OpenRead("WineList.CSV"));
+                var reader = new StreamReader(File.OpenRead("WineList.csv"));
 
                 Program.wineItemCollection.arrayCounter = Program.wineItemCollection.wineItemArray.Count(x => x != null);
 
@@ -43,7 +43,7 @@ namespace assignment1
             }
             catch
             {
-                Console.WriteLine("Could not open WineList.CSV. Please place or create WineList.CSV and place it in the debug folder.");
+                Console.WriteLine("Could not open WineList.csv. Please place or create WineList.csv and place it in the debug folder.");
             }
         }
 

@@ -46,7 +46,7 @@ namespace assignment1
 
         public override string ToString()
         {
-            string returnString = this.ID + " | " + this.description + " | " + this.pack + " | ";
+            string returnString = this.ID.PadRight(8) + " | " + this.description.PadRight(60) + " | " + this.pack.PadLeft(5);
             return returnString;
         }
 

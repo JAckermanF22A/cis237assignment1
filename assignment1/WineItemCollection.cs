@@ -11,7 +11,6 @@ namespace assignment1
         public WineItem[] wineItemArray;
         public int arrayCounter;
         public int lengthOfArray;
-        public bool arrayInitialized;
         public bool wineFound;
 
         public WineItemCollection()
@@ -23,18 +22,16 @@ namespace assignment1
         
         public void populateArray(WineItem wineItem)
         {
-
-
             wineItemArray[arrayCounter] = wineItem;
             arrayCounter++;
         }
 
         public void AddWine(WineItem wineItem)
         {
-            int winePosition = wineItemArray.Count(x => x != null) + 1;
+            int winePosition = wineItemArray.Count(x => x != null) + 1; //Finds the length of the array minus all the null slots.
 
-            if(wineItemArray[winePosition-1] == null)
-            {
+            if(wineItemArray[winePosition-1] == null) //This is a failsafe incase the .CSV hasn't been loaded in. 
+            {                                         //Without it, the added wine would end up in slot 1 with slot 0 being null still, causing problems.
                 winePosition = winePosition - 1;
             }
 

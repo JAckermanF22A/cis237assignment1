@@ -15,8 +15,7 @@ namespace assignment1
         {
             Console.WriteLine("Menu");
             Console.WriteLine("--------------------");
-            Console.WriteLine("Commands: load .csv" + " | " + "print list" + " | " + "search" + " | " + "add wine" + " | " + "exit");
-            Console.WriteLine("Pick a command, if you would.");
+            Console.WriteLine("Commands: display menu " + " | " + "load .csv" + " | " + "print list" + " | " + "search" + " | " + "add wine" + " | " + "exit");
 
             Console.WriteLine("--------------------");
         }
@@ -37,8 +36,8 @@ namespace assignment1
 
 
 
-            while(Program.wineItemCollection.lengthOfArray > alreadyDisplayed && exitBool == false)
-            {
+            while(Program.wineItemCollection.lengthOfArray > alreadyDisplayed && exitBool == false) //4000 elements and only a certain amount of the bottom elements showing up? No problem!
+            {                                                                                       //Just display them in chunks.
                 if(counter != 200)
                 {
                     Console.WriteLine(Program.wineItemCollection.wineItemArray[alreadyDisplayed].ToString());
@@ -84,6 +83,7 @@ namespace assignment1
         public void FoundDialogue()
         {
             Console.WriteLine("");
+            Console.WriteLine("A Wine with that ID has been found:");
             Console.WriteLine(foundWine);
         }
 
@@ -95,17 +95,46 @@ namespace assignment1
 
         public void AddDialogueID()
         {
+            Console.WriteLine("");
             Console.WriteLine("First, input the new wine's 5 digit ID");
         }
 
         public void AddDialogueDescription()
         {
+            Console.WriteLine(""); 
             Console.WriteLine("Please enter a description of the wine");
         }
 
         public void AddDialoguePack()
         {
+            Console.WriteLine("");
             Console.WriteLine("Finally, enter what pack the wine is");
         }
+
+        public void AddDialogueIDErrorMessage()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Sorry, your input was not 5 characters long. Please input a 5 character ID.");
+        }
+
+        public void UserInputError()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Invalid input: Please make sure your command was entered completely in lower case.");
+        }
+
+        public void CSVLoaded()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("The .csv has been succesfuly loaded.");
+        }
+
+        public void PickSomethingDammit()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Pick a command, if you would.");
+        }
+
+        
     }
 }
