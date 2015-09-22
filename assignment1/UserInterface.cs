@@ -11,6 +11,7 @@ namespace assignment1
         public string userInput;
         public string foundWine;
 
+        //Methods
         public void PrintMenu()
         {
             Console.WriteLine("Menu");

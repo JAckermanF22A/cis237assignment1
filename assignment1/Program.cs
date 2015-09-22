@@ -5,6 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
+
+//Assignment #1 CIS237 -- Jacob Ackerman
+//9-22-2015 
+
+
 namespace assignment1
 {
     class Program
@@ -19,7 +24,7 @@ namespace assignment1
         static void Main(string[] args)
         {
             
-            Console.SetWindowSize(150, 40); //Expands the console so that the data will fit. 
+            Console.SetWindowSize(150, 40); //Expands the console for easier viewing!
 
             CSVloaded = false; //CSV obviously hasn't been loaded in on program start-up so it should be false.
             userInterface.PrintMenu();
@@ -44,7 +49,7 @@ namespace assignment1
 
                     case "print list":
                         userInterface.PrintTheList();
-                        userInterface.PrintMenu();
+                        userInterface.PrintMenu(); //I figure that after the massive list of wine that's going to get printed out the menu probably should be reprinted
                         userInterface.PickSomethingDammit();
                         break;
 
@@ -107,27 +112,55 @@ namespace assignment1
             string tempPack;
             bool validationBool = false;
 
-
+            //Okay, so this loop is way more ridiculous than it should be because at the last minute I remembered user's could enter blanks for the description and pack...
+            //So sorry about this mess. 
             while (validationBool == false)
             {
                 userInterface.AddDialogueID();
                 userInterface.GetInput();
-
 
                 if (userInterface.userInput.Length == 5)
                 {
                     validationBool = true;
                     tempID = userInterface.userInput;
 
-                    userInterface.AddDialogueDescription();
-                    userInterface.GetInput();
-                    tempDescription = userInterface.userInput;
+                    bool validation2Bool = false;
+                    
+                    while(validation2Bool == false)
+                    {
+                        userInterface.AddDialogueDescription();
+                        userInterface.GetInput();
 
-                    userInterface.AddDialoguePack();
-                    userInterface.GetInput();
-                    tempPack = userInterface.userInput;
+                        if(userInterface.userInput.Trim() == "")
+                        {
+                            Console.WriteLine("Your input was blank. Please enter a description");
+                        }
+                        else
+                        {
+                            tempDescription = userInterface.userInput;
+                            validation2Bool = true;
+                            bool validation3Bool = false;
 
-                    wineItemCollection.AddWine(new WineItem(tempID, tempDescription, tempPack));
+                            while( validation3Bool == false)
+                            {
+                                userInterface.AddDialoguePack();
+                                userInterface.GetInput();
+
+                                if(userInterface.userInput.Trim() == "")
+                                {
+                                    Console.WriteLine("Your input was blank. Please enter a description");
+                                }
+                                else
+                                {
+                                    tempPack = userInterface.userInput;
+                                    validation3Bool = true;
+
+                                    wineItemCollection.AddWine(new WineItem(tempID, tempDescription, tempPack));
+                                }
+                            }
+                        }
+                    }
+                    
                 }
                 else
                 {

@@ -13,6 +13,7 @@ namespace assignment1
         public int lengthOfArray;
         public bool wineFound;
 
+        //Constructor
         public WineItemCollection()
         {
                 wineItemArray = new WineItem[4500];
@@ -20,6 +21,7 @@ namespace assignment1
         }
 
         
+        //Methods
         public void populateArray(WineItem wineItem)
         {
             wineItemArray[arrayCounter] = wineItem;

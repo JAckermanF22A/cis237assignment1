@@ -9,9 +9,7 @@ namespace assignment1
 {
     class CSVProcessor
     {
-        
-
-
+        //Method
         public void OpenTheGates()
         {
             try

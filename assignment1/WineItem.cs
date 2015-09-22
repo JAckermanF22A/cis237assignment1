@@ -26,33 +26,13 @@ namespace assignment1
             this.pack = pack;
         }
 
-        public string WineID
-        {
-            get { return this.ID; }
-            set { this.ID = value; }
-        }
 
-        public string WineDescription
-        {
-            get { return this.description; }
-            set { this.description = value; }
-        }
-
-        public string WinePack
-        {
-            get { return this.pack; }
-            set { this.pack = value; }
-        }
-
+        //Public Method
         public override string ToString()
         {
             string returnString = this.ID.PadRight(8) + " | " + this.description.PadRight(60) + " | " + this.pack.PadLeft(5);
             return returnString;
         }
-
-        
-
-        //Public Methods
 
 
 
