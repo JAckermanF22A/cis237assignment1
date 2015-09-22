@@ -14,7 +14,10 @@ namespace assignment1
         {
             try
             {
-                var reader = new StreamReader(File.OpenRead("WineList.csv"));
+                string directoryString = Directory.GetCurrentDirectory();
+
+                var reader = new StreamReader(File.OpenRead(directoryString + "\\..\\..\\..\\datafiles\\WineList.csv"));
+                Program.CSVloaded = true;
 
                 Program.wineItemCollection.arrayCounter = Program.wineItemCollection.wineItemArray.Count(x => x != null);
 

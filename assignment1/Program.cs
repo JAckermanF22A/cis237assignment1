@@ -14,7 +14,7 @@ namespace assignment1
 {
     class Program
     {
-        static bool CSVloaded; //Used for determining if the CSV file has been loaded.
+        public static bool CSVloaded; //Used for determining if the CSV file has been loaded.
 
         //It took me longer than I'd like to admit to figure out that I could make a public instance of a class that I could access from anywhere...
         public static CSVProcessor CSVprocessor = new CSVProcessor();
@@ -85,8 +85,10 @@ namespace assignment1
             else
             {
                 CSVprocessor.OpenTheGates();
-                CSVloaded = true;
-                userInterface.CSVLoaded();
+                if(CSVloaded == true)
+                {
+                    userInterface.CSVLoaded();
+                }
             }
                         
         }
