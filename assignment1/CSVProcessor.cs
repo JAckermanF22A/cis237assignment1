@@ -35,7 +35,7 @@ namespace assignment1
                 }
                 catch
                 {
-                    Console.WriteLine("It broke... I don't know why but it broke.");
+                    Console.WriteLine("It broke... I don't know why but it broke."); //Well, nothing SHOULD break here. Just wanted to make sure that if it does that the other catch doesn't happen.
                 }
 
             }

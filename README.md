@@ -1,7 +1,7 @@
-# Assignment 1 - Review of C# Basic Concepts and Introduction to Git
+﻿# Assignment 1 - Review of C# Basic Concepts and Introduction to Git
 
 ## Author
-
+Jacob Ackerman 9/22/2015
 ## Description
 
 Create a C# console program to work with a .CSV wine list. The program should continually run until the user decides to exit (entering a certain character on the keyboard). The program should allow the following functionality:
@@ -51,7 +51,10 @@ Suggestion/Hints:
 * Remember to handle (gracefully) cases where the user enters something incorrectly.
 
 ## Outside Resources Used
+http://stackoverflow.com/questions/2391743/how-many-elements-of-array-are-not-null
+http://stackoverflow.com/questions/5282999/reading-csv-file-and-storing-values-into-an-array
 
 ## Known Problems, Issues, And/Or Errors in the Program
+Entering 5 spaces during the ID part of the add wine function is considered valid. Although it's unlikely a user would do that...
 
 
